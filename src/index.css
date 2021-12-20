@@ -7,3 +7,23 @@
 a {
   text-decoration: none;
 }
+
+@keyframes slideUp {
+  from {
+    height: 70vh;
+  }
+  to {
+    height: 0vh;
+    display: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0vh;
+  }
+  to {
+    height: 70vh;
+  }
+}
+
