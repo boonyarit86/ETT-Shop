@@ -20,7 +20,7 @@ function Header() {
   }, []);
 
   return (
-    <>
+    <div style={{marginBottom: "100px"}}>
       <Container>
         <Content className={openSearch ? "openSearchInput" : ""}>
           <Logo>
@@ -108,7 +108,7 @@ function Header() {
       {openSearch && (
         <Backdrop backdrop={openSearch} setBackdrop={setOpenSearch} />
       )}
-    </>
+    </div>
   );
 }
 
