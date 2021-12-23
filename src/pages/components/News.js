@@ -1,36 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import NewsModal from "./NewsModal";
 
 function News() {
+  const [data, setData] = useState({});
+  const [openModal, setOpenModal] = useState(false);
+  const handleModal = (item) => {
+    if (item.newsType !== "UPDATE") {
+        setData(item);
+        setOpenModal(true);
+      }
+  }
+
   return (
-    <Container>
-      <h1>ข่าวสาร</h1>
-      {news.length > 0 &&
-        news.map((item) => (
-          <Item>
-            <ItemHeader>
-              <ItemStatus
-                style={{
-                  backgroundColor:
-                    item.newsType === "UPDATE"
-                      ? "#40e0d0"
-                      : item.newsType === "Shop"
-                      ? "#ff00ff"
-                      : "#ff7f50"
-                }}
-              >
-                <p>{item.newsType}</p>
-              </ItemStatus>
-              <ItemDate>
-                <p>{item.date}</p>
-              </ItemDate>
-            </ItemHeader>
-            <ItemDescription>
-              <p>{item.description}</p>
-            </ItemDescription>
-          </Item>
-        ))}
-    </Container>
+    <>
+      <Container>
+        <h1>ข่าวสาร</h1>
+        {news.length > 0 &&
+          news.map((item) => (
+            <Item
+              onClick={() => handleModal(item)}
+            >
+              <ItemHeader>
+                <ItemStatus
+                  style={{
+                    backgroundColor:
+                      item.newsType === "UPDATE"
+                        ? "#40e0d0"
+                        : item.newsType === "Shop"
+                        ? "#ff00ff"
+                        : "#ff7f50",
+                  }}
+                >
+                  <p>{item.newsType}</p>
+                </ItemStatus>
+                <ItemDate>
+                  <p>{item.date}</p>
+                </ItemDate>
+              </ItemHeader>
+              <ItemDescription>
+                <p>{item.description}</p>
+              </ItemDescription>
+            </Item>
+          ))}
+      </Container>
+
+      {openModal && (
+        <NewsModal data={data} setOpenModal={setOpenModal} setData={setData} />
+      )}
+    </>
   );
 }
 
@@ -105,6 +123,6 @@ let news = [
     newsType: "Promotion",
     date: "2021/12/17",
     exp: "2021/12/25",
-    adImage: "",
+    adImage: "https://o.lnwfile.com/pag2f9.jpg",
   },
 ];
