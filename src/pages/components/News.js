@@ -60,8 +60,9 @@ function News() {
 export default News;
 
 const Container = styled.div`
-  width: 90%;  
   margin: 0 auto;
+  max-width: 1128px;
+  padding: 10px;
 `;
 
 const Content = styled.div`
