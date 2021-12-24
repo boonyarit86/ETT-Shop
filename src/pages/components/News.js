@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Backdrop from "../../shared/UIElements/Backdrop";
 import NewsModal from "./NewsModal";
 
 function News() {
@@ -7,47 +8,51 @@ function News() {
   const [openModal, setOpenModal] = useState(false);
   const handleModal = (item) => {
     if (item.newsType !== "UPDATE") {
-        setData(item);
-        setOpenModal(true);
-      }
-  }
+      setData(item);
+      setOpenModal(true);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setData({});
+  };
 
   return (
     <>
       <Container>
         <h1>ข่าวสาร</h1>
-        {news.length > 0 &&
-          news.map((item) => (
-            <Item
-              onClick={() => handleModal(item)}
-            >
-              <ItemHeader>
-                <ItemStatus
-                  style={{
-                    backgroundColor:
-                      item.newsType === "UPDATE"
-                        ? "#40e0d0"
-                        : item.newsType === "Shop"
-                        ? "#ff00ff"
-                        : "#ff7f50",
-                  }}
-                >
-                  <p>{item.newsType}</p>
-                </ItemStatus>
-                <ItemDate>
-                  <p>{item.date}</p>
-                </ItemDate>
-              </ItemHeader>
-              <ItemDescription>
-                <p>{item.description}</p>
-              </ItemDescription>
-            </Item>
-          ))}
+        <Content>
+          {news.length > 0 &&
+            news.map((item) => (
+              <Item onClick={() => handleModal(item)}>
+                <ItemHeader>
+                  <ItemStatus
+                    style={{
+                      backgroundColor:
+                        item.newsType === "UPDATE"
+                          ? "#40e0d0"
+                          : item.newsType === "Shop"
+                          ? "#ff00ff"
+                          : "#ff7f50",
+                    }}
+                  >
+                    <p>{item.newsType}</p>
+                  </ItemStatus>
+                  <ItemDate>
+                    <p>{item.date}</p>
+                  </ItemDate>
+                </ItemHeader>
+                <ItemDescription>
+                  <p>{item.description}</p>
+                </ItemDescription>
+              </Item>
+            ))}
+        </Content>
       </Container>
 
-      {openModal && (
-        <NewsModal data={data} setOpenModal={setOpenModal} setData={setData} />
-      )}
+      {openModal && <NewsModal data={data} onClick={handleCloseModal} />}
+      {openModal && <Backdrop onClick={handleCloseModal} />}
     </>
   );
 }
@@ -55,8 +60,16 @@ function News() {
 export default News;
 
 const Container = styled.div`
-  width: 90%;
+  width: 90%;  
   margin: 0 auto;
+`;
+
+const Content = styled.div`
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin-top: 10px;
 `;
 
 const Item = styled.div`
@@ -125,4 +138,5 @@ let news = [
     exp: "2021/12/25",
     adImage: "https://o.lnwfile.com/pag2f9.jpg",
   },
+  
 ];

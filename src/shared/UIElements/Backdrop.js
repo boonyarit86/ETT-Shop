@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-function Backdrop({ backdrop, setBackdrop }) {
-  return <Container onClick={() => setBackdrop(!backdrop)} />;
+function Backdrop(props) {
+  return <Container onClick={props.onClick} />;
 }
 
 const Container = styled.div`

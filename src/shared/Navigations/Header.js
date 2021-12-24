@@ -19,6 +19,11 @@ function Header() {
     return () => window.removeEventListener("resize", () => {});
   }, []);
 
+  const handleBackdrop = () => {
+      setOpenSearch(false);
+      setOpenMenuMobile(false);
+  }
+
   return (
     <div style={{marginBottom: "100px"}}>
       <Container>
@@ -103,10 +108,10 @@ function Header() {
         </MobileContent>
       </Container>
       {openMenuMobile && (
-        <Backdrop backdrop={openMenuMobile} setBackdrop={setOpenMenuMobile} />
+        <Backdrop onClick={handleBackdrop} />
       )}
       {openSearch && (
-        <Backdrop backdrop={openSearch} setBackdrop={setOpenSearch} />
+        <Backdrop onClick={handleBackdrop} />
       )}
     </div>
   );
@@ -147,7 +152,7 @@ const Container = styled.div`
   left: 0;
   top: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  z-index: 9999;
+  z-index: 999;
   .openMobileMenu {
     display: block;
     height: 70vh;

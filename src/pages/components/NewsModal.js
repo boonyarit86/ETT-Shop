@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-function NewsModal({ data, setOpenModal, setData }) {
-
-    console.log(data)
-
+function NewsModal({ data, onClick }) {
 
   return (
     <Container>
@@ -12,10 +9,7 @@ function NewsModal({ data, setOpenModal, setData }) {
         <img 
         src="./images/close-icon.svg" 
         alt="" 
-        onClick={() => {
-            setOpenModal(false);
-            setData({});
-        }}
+        onClick={onClick}
         />
       </Header>
       {data.newsType === "Shop" && (
@@ -50,6 +44,7 @@ const Container = styled.div`
   border: 1px solid #000;
   background-color: #fff;
   height: auto;
+  z-index: 999;
 
   @media(max-width: 500px) {
       width: 90%;
