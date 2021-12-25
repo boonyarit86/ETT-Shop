@@ -35,22 +35,22 @@ function Header() {
             <NavListWrap>
               <NavList>
                 <a href="#" alt="">
-                  Home
+                  หน้าแรก
                 </a>
               </NavList>
               <NavList>
                 <a href="#" alt="">
-                  Product
+                  สินค้า
                 </a>
               </NavList>
               <NavList>
                 <a href="#" alt="">
-                  Article
+                  บทความ
                 </a>
               </NavList>
               <NavList>
                 <a href="#" alt="">
-                  Contact
+                  ติดต่อ
                 </a>
               </NavList>
             </NavListWrap>
@@ -86,22 +86,22 @@ function Header() {
           <NavListWrapMobile>
             <NavListMobile>
               <a href="#" alt="">
-                Home
+                หน้าแรก
               </a>
             </NavListMobile>
             <NavListMobile>
               <a href="#" alt="">
-                Product
+                สินค้า
               </a>
             </NavListMobile>
             <NavListMobile>
               <a href="#" alt="">
-                Article
+                บทความ
               </a>
             </NavListMobile>
             <NavListMobile>
               <a href="#" alt="">
-                Contact
+                ติดต่อ
               </a>
             </NavListMobile>
           </NavListWrapMobile>
@@ -192,15 +192,14 @@ const NavList = styled.li`
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
-  min-width: 80px;
+  margin-right: 30px;
   a {
-    color: #fff;
-    opacity: 0.9;
+    color: #eee;
     transition: ease-in 0.1s;
   }
 
   a:hover {
-    opacity: 1;
+    color: #fff;
   }
 `;
 
@@ -280,13 +279,12 @@ const NavListMobile = styled.li`
   padding: 20px 0;
   border-bottom: 1px solid #fff;
   a {
-    color: #fff;
-    opacity: 0.9;
+    color: #eee;
     transition: ease-in 0.1s;
   }
 
   a:hover {
-    opacity: 1;
+    color: #fff;
   }
 `;
 
