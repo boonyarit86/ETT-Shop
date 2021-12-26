@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Footer() {
@@ -15,14 +16,16 @@ function Footer() {
         <About>
           <p>เกี่ยวกับ ETT</p>
           <List>
-            <li>ประวัติ ETT</li>
+            <li>
+              <Link to="/about">ประวัติ ETT</Link>
+            </li>
             <li>บทความ</li>
             <li>ตัวแทนจำหน่าย</li>
             <li>ดาวน์โหลด</li>
           </List>
         </About>
         <Contact>
-          <p>ข้อมูลติดต่อ</p>
+          <p><Link to="/contact" >ข้อมูลติดต่อ</Link></p>
           <List>
             <li>1112/96-98 ถ.สุขุมวิท แขวงพระโขนง เขตคลองเตย กรุงเทพ 10110</li>
             <li>
@@ -33,9 +36,9 @@ function Footer() {
             </li>
             <li>
               <SocialLink>
-                <Icon></Icon>
-                <Icon></Icon>
-                <Icon></Icon>
+                <Icon><img src="/images/facebook-icon--white.png" alt="" /></Icon>
+                <Icon><img src="/images/line-icon--white.png" alt="" /></Icon>
+                <Icon><img src="/images/email-icon--white.png" alt="" /></Icon>
               </SocialLink>
             </li>
           </List>
@@ -57,7 +60,6 @@ export default Footer;
 const Container = styled.div`
   background-color: #1a1c20;
   padding: 20px 10px;
-  margin-top: 50px;
   width: 100%;
 `;
 
@@ -105,6 +107,18 @@ const List = styled.ul`
       line-height: 2;
     }
   }
+
+  li {
+    a {
+      color: #8b8d94;
+      padding: 5px 0;
+      max-width: 180px;
+
+      &:hover {
+        color: #ffc709;
+      }
+    }
+  }
 `;
 
 const Help = styled.div`
@@ -116,7 +130,16 @@ const Help = styled.div`
 
 const About = styled(Help)``;
 
-const Contact = styled(Help)``;
+const Contact = styled(Help)`
+  p {
+    a {
+      color: #eee;
+      &:hover {
+       color: #ffc709;
+     }
+    }
+  }
+`;
 
 const SocialLink = styled.div`
   margin-top: 10px;
@@ -130,4 +153,16 @@ const Icon = styled.div`
   background-color: #333;
   border-radius: 50%;
   margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #002ead;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 `;

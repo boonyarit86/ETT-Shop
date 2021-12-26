@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Backdrop from "../UIElements/Backdrop";
 
 function Header() {
@@ -25,18 +26,20 @@ function Header() {
   }
 
   return (
-    <div style={{marginBottom: "100px"}}>
+    <div>
       <Container>
         <Content className={openSearch ? "openSearchInput" : ""}>
           <Logo>
-            <img src="/images/Ett-logo.png" />
+            <Link to="/" >
+              <img src="/images/Ett-logo.png" />
+            </Link>
           </Logo>
           <Nav>
             <NavListWrap>
               <NavList>
-                <a href="#" alt="">
+                <Link to="/" >
                   หน้าแรก
-                </a>
+                </Link>
               </NavList>
               <NavList>
                 <a href="#" alt="">
@@ -49,16 +52,16 @@ function Header() {
                 </a>
               </NavList>
               <NavList>
-                <a href="#" alt="">
+                <Link to="/contact" >
                   ติดต่อ
-                </a>
+                </Link>
               </NavList>
             </NavListWrap>
           </Nav>
-          <SearchIcon onClick={(e) => setOpenSearch(!openSearch)}>
+          <SearchIcon onClick={() => setOpenSearch(!openSearch)}>
             <img src="/images/search-icon.svg" alt="" />
           </SearchIcon>
-          <MenuIcon onClick={(e) => setOpenMenuMobile(!openMenuMobile)}>
+          <MenuIcon onClick={() => setOpenMenuMobile(!openMenuMobile)}>
             <img
               src={`/images/${
                 !openMenuMobile ? "hamburgur" : "close"
@@ -85,9 +88,9 @@ function Header() {
           <hr />
           <NavListWrapMobile>
             <NavListMobile>
-              <a href="#" alt="">
+              <Link to="/" onClick={handleBackdrop}>
                 หน้าแรก
-              </a>
+              </Link>
             </NavListMobile>
             <NavListMobile>
               <a href="#" alt="">
@@ -100,9 +103,9 @@ function Header() {
               </a>
             </NavListMobile>
             <NavListMobile>
-              <a href="#" alt="">
+              <Link to="/contact" onClick={handleBackdrop}>
                 ติดต่อ
-              </a>
+              </Link>
             </NavListMobile>
           </NavListWrapMobile>
         </MobileContent>
@@ -120,7 +123,7 @@ function Header() {
 export default Header;
 
 const Logo = styled.div`
-  img {
+  a > img {
     width: 48px;
     height: 48px;
   }

@@ -1,15 +1,19 @@
 import React from "react";
-import Footer from "./components/Footer";
+import styled from "styled-components";
 import News from "./components/News";
 
 function Home () {
 
     return (
-        <div>
+        <Container>
             <News />
-            <Footer />
-        </div>
+        </Container>
     )
 }
+
+const Container = styled.div`
+  margin: 80px 0 80px 0;
+
+`
 
 export default Home;
