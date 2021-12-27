@@ -36,9 +36,9 @@ function Footer() {
             </li>
             <li>
               <SocialLink>
-                <Icon><img src="/images/facebook-icon--white.png" alt="" /></Icon>
-                <Icon><img src="/images/line-icon--white.png" alt="" /></Icon>
-                <Icon><img src="/images/email-icon--white.png" alt="" /></Icon>
+                <Icon href="https://m.facebook.com/ett.co.th" ><img src="/images/facebook-icon--white.png" alt="" /></Icon>
+                <Icon href="#" ><img src="/images/line-icon--white.png" alt="" /></Icon>
+                <Icon href="#" ><img src="/images/email-icon--white.png" alt="" /></Icon>
               </SocialLink>
             </li>
           </List>
@@ -147,7 +147,7 @@ const SocialLink = styled.div`
   align-items: center;
 `;
 
-const Icon = styled.div`
+const Icon = styled.a`
   width: 38px;
   height: 38px;
   background-color: #333;
