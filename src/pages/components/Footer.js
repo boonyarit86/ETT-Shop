@@ -20,7 +20,7 @@ function Footer() {
               <Link to="/about">ประวัติ ETT</Link>
             </li>
             <li>บทความ</li>
-            <li>ตัวแทนจำหน่าย</li>
+            <li><Link to="/partner">ตัวแทนจำหน่าย</Link></li>
             <li>ดาวน์โหลด</li>
           </List>
         </About>
