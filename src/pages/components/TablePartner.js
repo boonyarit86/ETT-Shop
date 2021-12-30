@@ -134,6 +134,13 @@ const Tbody = styled.tbody`
   td:nth-child(3) {
     flex: 1;
   }
+
+  @media(max-width: 500px) {
+    td:first-child {
+        width: 80px;
+        overflow: scroll;
+  }
+  }
 `;
 
 const ContactWrap = styled.ul`

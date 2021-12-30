@@ -9,7 +9,7 @@ function Footer() {
         <Help>
           <p>ศูนย์ให้ความช่วยเหลือ</p>
           <List>
-            <li>การชำระเงิน</li>
+            <li><Link to="/payment">การชำระเงิน</Link></li>
             <li>สินค้าจากต่างประเทศ</li>
           </List>
         </Help>
