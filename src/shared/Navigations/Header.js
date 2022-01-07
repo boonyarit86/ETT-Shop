@@ -21,30 +21,26 @@ function Header() {
   }, []);
 
   const handleBackdrop = () => {
-      setOpenSearch(false);
-      setOpenMenuMobile(false);
-  }
+    setOpenSearch(false);
+    setOpenMenuMobile(false);
+  };
 
   return (
     <div>
       <Container>
         <Content className={openSearch ? "openSearchInput" : ""}>
           <Logo>
-            <Link to="/" >
-              <img src="/images/Ett-logo.png" />
+            <Link to="/">
+              <img src="/images/ett-logo.png" />
             </Link>
           </Logo>
           <Nav>
             <NavListWrap>
               <NavList>
-                <Link to="/" >
-                  หน้าแรก
-                </Link>
+                <Link to="/">หน้าแรก</Link>
               </NavList>
               <NavList>
-                <a href="#" alt="">
-                  สินค้า
-                </a>
+                <Link to="/product">สินค้า</Link>
               </NavList>
               <NavList>
                 <a href="#" alt="">
@@ -52,9 +48,7 @@ function Header() {
                 </a>
               </NavList>
               <NavList>
-                <Link to="/contact" >
-                  ติดต่อ
-                </Link>
+                <Link to="/contact">ติดต่อ</Link>
               </NavList>
             </NavListWrap>
           </Nav>
@@ -93,9 +87,9 @@ function Header() {
               </Link>
             </NavListMobile>
             <NavListMobile>
-              <a href="#" alt="">
+              <Link to="/product" onClick={handleBackdrop}>
                 สินค้า
-              </a>
+              </Link>
             </NavListMobile>
             <NavListMobile>
               <a href="#" alt="">
@@ -110,12 +104,8 @@ function Header() {
           </NavListWrapMobile>
         </MobileContent>
       </Container>
-      {openMenuMobile && (
-        <Backdrop onClick={handleBackdrop} />
-      )}
-      {openSearch && (
-        <Backdrop onClick={handleBackdrop} />
-      )}
+      {openMenuMobile && <Backdrop onClick={handleBackdrop} />}
+      {openSearch && <Backdrop onClick={handleBackdrop} />}
     </div>
   );
 }

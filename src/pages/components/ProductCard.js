@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-function ProductCard({ product }) {
+function ProductCard({ product, border }) {
   return (
-    <Container>
+    <Container style={{ border: (border ? "1px solid #ccc" : "none"), margin: (border ? "10px" : null)  }} >
       <Product>
         <ProductImage>
           <div>
@@ -33,14 +33,24 @@ export default ProductCard;
 
 const Container = styled.div`
   display: inline-block;
+
+  @media(max-width: 600px) {
+    margin: 0 !important;
+  }
 `;
 
 const Product = styled.div`
-  max-width: 180px;
+  width: 180px;
   height: 300px;
   padding: 14px 14px 7px;
   position: relative;
+  margin: 0 auto;
   /* border: 1px solid #ccc; */
+
+  /* @media(max-width: 450px) {
+      max-width: 180px;
+      max-height: 300px;
+    } */
 `;
 
 const ProductImage = styled.div`
@@ -79,7 +89,14 @@ const ProductImage = styled.div`
       text-shadow: 0 1px 1px rgb(0 0 0 / 40%);
       letter-spacing: 0.08em;
     }
+
+    /* @media(max-width: 450px) {
+      max-width: 120px;
+      max-height: 150px;
+      border: 1px solid blue;
+    } */
   }
+
 `;
 
 const ProductTilte = styled.div`

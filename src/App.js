@@ -8,6 +8,7 @@ import Footer from "./pages/components/Footer";
 import Contact from "./pages/Contact";
 import Partner from "./pages/Partner";
 import Payment from "./pages/Payment";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/product" element={<Product />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
