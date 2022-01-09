@@ -57,8 +57,6 @@ const ProductWrap = styled.div`
   }
 
   /* border: 2px solid pink; */
-
-
 `;
 
 export default Product;

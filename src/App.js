@@ -9,11 +9,13 @@ import Contact from "./pages/Contact";
 import Partner from "./pages/Partner";
 import Payment from "./pages/Payment";
 import Product from "./pages/Product";
+import ScrollToTop from "./pages/components/ScrollToTop";
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
