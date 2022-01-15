@@ -1,0 +1,60 @@
+.selector {
+    width: 350px;
+}
+
+.selectField {
+    width: 100%;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ccc; 
+}
+
+.textWrap {
+    display: flex;
+}
+
+.textWrap p:last-child {
+    flex: 1;
+}
+
+.selectField img {
+    width: 12px;
+    transition: transform 0.5s;
+}
+
+#options {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ccc; 
+    margin-top: 30px;
+}
+
+.option {
+    width: 100%;
+    padding: 15px 0 15px 40px;
+    list-style: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.option:hover {
+    background: #ccc;
+}
+
+.hide {
+    /* visibility: hidden; */
+    display: none;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}

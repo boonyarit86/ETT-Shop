@@ -10,6 +10,7 @@ import Partner from "./pages/Partner";
 import Payment from "./pages/Payment";
 import Product from "./pages/Product";
 import ScrollToTop from "./pages/components/ScrollToTop";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/partner" element={<Partner />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/product/detail" element={<ProductDetail />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />

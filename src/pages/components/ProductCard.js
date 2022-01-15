@@ -47,10 +47,10 @@ const Product = styled.div`
   margin: 0 auto;
   /* border: 1px solid #ccc; */
 
-  /* @media(max-width: 450px) {
-      max-width: 180px;
+  @media(max-width: 450px) {
+      max-width: 150px;
       max-height: 300px;
-    } */
+    }
 `;
 
 const ProductImage = styled.div`
@@ -90,11 +90,11 @@ const ProductImage = styled.div`
       letter-spacing: 0.08em;
     }
 
-    /* @media(max-width: 450px) {
+    @media(max-width: 450px) {
       max-width: 120px;
       max-height: 150px;
-      border: 1px solid blue;
-    } */
+      /* border: 1px solid blue; */
+    }
   }
 
 `;
