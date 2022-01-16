@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { products } from "../Api";
 import ProductCard from "./components/ProductCard";
+import ProductFilter from "./components/ProductFilter";
 
 function Product() {
   return (
     <Container>
       <ProductContainer>
+        <ProductFilter />
         <ProductWrap>
           {products.length > 0 &&
             products.map((product, index) => (
@@ -29,10 +31,19 @@ const ProductContainer = styled.div`
   margin: 80px auto;
   max-width: 1128px;
   padding: 10px;
+  .selector:first-child {
+    margin: 10px;
+
+    @media(max-width: 500px) {
+      width: 100%;
+      padding: 0 10px;
+      margin: 10px 0;
+    }
+  }
   /* border: 1px solid orange; */
 
   @media(max-width: 600px) {
-    padding: 0;
+    padding: 10px 0;
   }
 `;
 
