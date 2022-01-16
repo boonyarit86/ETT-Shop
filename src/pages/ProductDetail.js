@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavigationSlide from "./components/NavigationSlide";
+import ShowProductDetail from "./components/ShowProductDetail";
 
 function ProductDetail() {
   return (
@@ -21,6 +22,7 @@ function ProductDetail() {
         </DisplayImage>
       </Section>
 
+      {/* ---   Product Detail   --- */}
       <SectionDescription>
         <Title>
           <p>รายละเอียดสินค้า</p>
@@ -53,30 +55,19 @@ function ProductDetail() {
           </WarningText>
         </TextInfo>
       </SectionDescription>
+      {/* ---   Product Detail   --- */}
 
+      {/* ---   Product Feature   --- */}
       <SectionDescription>
-        <Title>
-          <p>คุณสมบัติ</p>
-        </Title>
-
-        <FeatureWrap>
-          <FeatureList>
-            32 INPUT รับสัญญาณ DC 3-30V ในแบบ OPTO ISOLATION
-            โดยมีจำหน่ายเป็นรุ่นแบบ INPUT PNP (จุดรวมสัญญาณแบบลบ) และ แบบ INPUT
-            NPN (จุดรวมสัญญาณแบบบวก) <a href="#">Link</a>
-            <ListImage>
-              <div>
-                <img src="https://c4.wallpaperflare.com/wallpaper/13/457/274/anime-re-zero-starting-life-in-another-world-emilia-re-zero-re-zero-starting-life-in-another-world-ova-memory-snow-wallpaper-preview.jpg" />
-                <span>Img 1</span>
-              </div>
-              <div>
-                <img src="https://c4.wallpaperflare.com/wallpaper/13/457/274/anime-re-zero-starting-life-in-another-world-emilia-re-zero-re-zero-starting-life-in-another-world-ova-memory-snow-wallpaper-preview.jpg" />
-                <span>Img 1</span>
-              </div>
-            </ListImage>
-          </FeatureList>
-        </FeatureWrap>
+        <ShowProductDetail header="คุณสมบัติ" />
       </SectionDescription>
+      {/* ---   Product Feature   --- */}
+
+      {/* ---   Product Component   --- */}
+      <SectionDescription>
+        <ShowProductDetail header="บอร์ด Arduino ประกอบด้วย" />
+      </SectionDescription>
+      {/* ---   Product Component   --- */}
     </Container>
   );
 }
@@ -199,52 +190,4 @@ const WarningText = styled.div`
   padding: 10px;
   color: #fff;
   background-color: #d0011b;
-`;
-
-const FeatureWrap = styled.ul`
-  margin: 20px 20px 10px 40px;
-
-  @media (max-width: 500px) {
-    margin-left: 20px;
-  }
-`;
-
-const FeatureList = styled.li`
-
-`;
-
-const ListImage = styled.div`
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  span {
-    font-size: 12px;
-    margin: 5px 0;
-    text-align: center;
-  }
-
-  img {
-    width: 450px;
-    height: 450px;
-    background-position: center;
-    background-repeat: no-repeat;
-    object-fit: cover;
-    margin: 10px 0;
-  }
-
-  @media (max-width: 500px) {
-    flex-direction: column;
-    justify-content: center;
-    img {
-      width: 90%;
-    }
-  }
 `;
