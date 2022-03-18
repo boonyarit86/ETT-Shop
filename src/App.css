@@ -1,0 +1,14 @@
+html {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  z-index: 10;
+  position: relative;
+}
+
+/* 1200: 75 */
+/* 900: 56.25 */
+/* 600: 37.5 */
+/* 500: 31.25 */

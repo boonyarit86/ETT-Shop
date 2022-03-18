@@ -14,7 +14,7 @@ import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Router>
         <ScrollToTop />
         <Header />

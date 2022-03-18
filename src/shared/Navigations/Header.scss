@@ -1,0 +1,103 @@
+.header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  &__content {
+    position: relative;
+    height: 6rem;
+    display: grid;
+    grid-template-columns: 8rem 1fr 8rem;
+    align-items: center;
+    z-index: 100;
+  }
+
+  &__logo-box {
+    width: 4.8rem;
+    height: 4.8rem;
+  }
+
+  &__logo-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__item {
+    a {
+      color: var(--color-primary);
+
+      &:hover {
+        color: var(--color-grey--dark);
+      }
+    }
+    padding: 0.5rem 1.5rem;
+  }
+
+  &__search-icon {
+    justify-self: end;
+    width: 2.4rem;
+    height: 2.4rem;
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  &__search-input {
+    width: 100%;
+    outline: none;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: transparent;
+    background-color: var(--color-white);
+    height: 100%;
+    border: none;
+    text-indent: 1rem;
+
+    &-box {
+      width: 50rem;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      @media (max-width: 37.5em) {
+        width: 100%;
+        padding: 0 1rem;
+      }
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3.6rem;
+      animation: fadeInputIn 0.3s ease-out 0.3s;
+      animation-fill-mode: backwards;
+    }
+
+    &-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      background-color: transparent;
+      color: var(--color-white);
+      margin-right: 1rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes fadeInputIn {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%;
+  }
+}
