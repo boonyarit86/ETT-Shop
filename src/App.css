@@ -2,11 +2,8 @@ html {
   box-sizing: border-box;
 }
 
-.container {
-  margin: 0 auto;
-  z-index: 10;
-  position: relative;
-}
+/* .container {
+} */
 
 /* 1200: 75 */
 /* 900: 56.25 */

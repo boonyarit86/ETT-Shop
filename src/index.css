@@ -70,3 +70,24 @@ a {
     height: 70vh;
   }
 }
+
+/* less than 1200px */
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+/* less than 900px */
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* more than 1800px */
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
