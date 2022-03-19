@@ -48,7 +48,7 @@ a {
 
 .row {
   max-width: 114rem;
-  padding: 0.5rem 3rem;
+  padding: 0rem 3rem;
   margin: 0 auto;
 }
 
@@ -68,5 +68,26 @@ a {
   }
   to {
     height: 70vh;
+  }
+}
+
+/* less than 1200px */
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+/* less than 900px */
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/* more than 1800px */
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
   }
 }
