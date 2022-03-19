@@ -1,112 +1,66 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Backdrop from "../../shared/UIElements/Backdrop";
 import NewsModal from "./NewsModal";
+
+import "./News.scss";
 
 function News() {
   const [data, setData] = useState({});
   const [openModal, setOpenModal] = useState(false);
   const handleModal = (item) => {
+    let news_modalEl = document.querySelector(".news-modal");
     if (item.newsType !== "UPDATE") {
       setData(item);
-      setOpenModal(true);
+      setOpenModal(prev => !prev);
+      news_modalEl.classList.remove("news-modal--close");
+      news_modalEl.classList.add("news-modal--open");
     }
+
   };
 
   const handleCloseModal = () => {
-    setOpenModal(false);
+    let news_modalEl = document.querySelector(".news-modal");
+    
+    news_modalEl.classList.remove("news-modal--open");
+    news_modalEl.classList.add("news-modal--close");
+    setOpenModal(prev => !prev);
     setData({});
   };
 
   return (
-    <>
-      <Container>
-        <h1>ข่าวสาร</h1>
-        <Content>
+    <React.Fragment>
+      <div className="news">
+        <h1 className="news__header">ข่าวสาร</h1>
+        <div className="news__box">
           {news.length > 0 &&
-            news.map((item) => (
-              <Item onClick={() => handleModal(item)}>
-                <ItemHeader>
-                  <ItemStatus
-                    style={{
-                      backgroundColor:
-                        item.newsType === "UPDATE"
-                          ? "#40e0d0"
-                          : item.newsType === "Shop"
-                          ? "#ff00ff"
-                          : "#ff7f50",
-                    }}
-                  >
+            news.map((item, index) => (
+              <div
+                className="news__item"
+                onClick={() => handleModal(item)}
+                key={index}
+                style={{cursor: item.newsType !== 'UPDATE' ? 'pointer' : 'initial'}}
+              >
+                <div className="news__item-tags">
+                  <div className="news__item-status">
                     <p>{item.newsType}</p>
-                  </ItemStatus>
-                  <ItemDate>
+                  </div>
+                  <div className="news__item-date">
                     <p>{item.date}</p>
-                  </ItemDate>
-                </ItemHeader>
-                <ItemDescription>
-                  <p>{item.description}</p>
-                </ItemDescription>
-              </Item>
+                  </div>
+                </div>
+                <p className="news__item-detail">{item.description}</p>
+              </div>
             ))}
-        </Content>
-      </Container>
+        </div>
+      </div>
 
-      {openModal && <NewsModal data={data} onClick={handleCloseModal} />}
-      {openModal && <Backdrop onClick={handleCloseModal} />}
-    </>
+      <NewsModal data={data} onClick={handleCloseModal} />
+      {openModal && <Backdrop onClick={handleCloseModal} mobile />}
+    </React.Fragment>
   );
 }
 
 export default News;
-
-const Container = styled.div`
-  margin: 0 auto;
-  max-width: 1128px;
-  padding: 10px;
-`;
-
-const Content = styled.div`
-  width: 100%;
-  max-height: 500px;
-  overflow: hidden;
-  overflow-y: scroll;
-  margin-top: 10px;
-`;
-
-const Item = styled.div`
-  width: 100%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 10px 0;
-  border-left: 5px solid #424245;
-`;
-
-const ItemHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-`;
-
-const ItemStatus = styled.div`
-  color: #fff;
-  font-size: 12px;
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  height: 22px;
-  align-items: center;
-`;
-
-const ItemDate = styled(ItemStatus)`
-  margin-left: 10px;
-  background-color: #424245;
-`;
-
-const ItemDescription = styled.div`
-  color: #6e6e73;
-`;
 
 let news = [
   {
@@ -139,5 +93,4 @@ let news = [
     exp: "2021/12/25",
     adImage: "https://o.lnwfile.com/pag2f9.jpg",
   },
-  
 ];

@@ -1,34 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import "./NewsModal.scss";
 
 function NewsModal({ data, onClick }) {
-
   return (
-    <Container>
-      <Header>
-        <img 
-        src="./images/close-icon.svg" 
-        alt="" 
-        onClick={onClick}
-        />
-      </Header>
+    <div className="news-modal news-modal--close">
+      <ion-icon class="news-modal__close-icon" name="close-outline" onClick={onClick}></ion-icon>
       {data.newsType === "Shop" && (
-      <Content>
-          <h2>{data.product.productName}</h2>
-          <p>{data.description}</p>
-          <a href={data.product.productUrl}>
-            <img src={data.product.productImage} alt="" />
+        <div className="news-modal__box">
+          <h2 className="news-modal__title">{data.product.productName}</h2>
+          <p className="news-modal__description">{data.description}</p>
+          <a className="news-modal__img-link" href={data.product.productUrl}>
+            <img
+              className="news-modal__img"
+              src={data.product.productImage}
+              alt="news image"
+            />
           </a>
-      </Content>
+        </div>
       )}
       {data.newsType === "Promotion" && (
-      <Content>
-          <a href="#">
-            <img src={data.adImage} alt="" />
+        <div className="news-modal__box">
+          <a href="#" className="news-modal__img-link">
+            <img className="news-modal__img" src={data.adImage} alt="news image" />
           </a>
-      </Content>
+        </div>
       )}
-    </Container>
+    </div>
   );
 }
 
@@ -46,8 +44,8 @@ const Container = styled.div`
   height: auto;
   z-index: 999;
 
-  @media(max-width: 500px) {
-      width: 90%;
+  @media (max-width: 500px) {
+    width: 90%;
   }
 `;
 
@@ -61,27 +59,27 @@ const Header = styled.div`
 `;
 
 const Content = styled.div`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  p {
+    padding: 10px;
+    text-align: center;
+  }
+
+  a {
     width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+  }
 
-    p {
-        padding: 10px;
-        text-align: center;
-    }
-
-    a {
-        width: 100%;
-        margin-top: 10px;
-        overflow: hidden;
-    }
-
-    a > img{
-        width: 100%;
-        height: 350px;
-        object-fit: "contain";
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+  a > img {
+    width: 100%;
+    height: 350px;
+    object-fit: "contain";
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 `;

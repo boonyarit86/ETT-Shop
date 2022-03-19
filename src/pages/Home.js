@@ -6,15 +6,12 @@ import News from "./components/News";
 function Home () {
 
     return (
-        <Container>
+        <div className="row">
             <News />
             <NewProducts />
-        </Container>
+        </div>
     )
 }
 
-const Container = styled.div`
-  margin: 80px 0 80px 0;
-`;
 
 export default Home;
