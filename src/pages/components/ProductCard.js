@@ -1,127 +1,16 @@
 import React from "react";
-import styled from "styled-components";
+import { Link } from "react-router-dom";
+import "./ProductCard.scss";
 
-function ProductCard({ product, border }) {
+function ProductCard({ product }) {
   return (
-    <Container style={{ border: (border ? "1px solid #ccc" : "none"), margin: (border ? "10px" : null)  }} >
-      <Product>
-        <ProductImage>
-          <div>
-            <a href="#">
-              <img src={product.avatar} alt="" />
-            </a>
-            <div
-              className="tagstatus"
-              style={{ display: product.isNew ? "block" : "none" }}
-            >
-              NEW
-            </div>
-          </div>
-        </ProductImage>
-        <ProductTilte>
-          <a href="#"><span>{product.title}</span></a>
-        </ProductTilte>
-        <ProductPrice>
-          <span>{product.pricing.price}</span>
-        </ProductPrice>
-      </Product>
-    </Container>
+    <Link to="/product/detail" className="product__item">
+      <img className="product__img" src={product.avatar} />
+      <p className="product__name">{product.title}</p>
+      <p className="product__price">฿ {product.pricing.price}</p>
+      <span className="product__status-tag">New</span>
+    </Link>
   );
 }
 
 export default ProductCard;
-
-const Container = styled.div`
-  display: inline-block;
-
-  @media(max-width: 600px) {
-    margin: 0 !important;
-  }
-`;
-
-const Product = styled.div`
-  width: 180px;
-  height: 300px;
-  padding: 14px 14px 7px;
-  position: relative;
-  margin: 0 auto;
-  /* border: 1px solid #ccc; */
-
-  @media(max-width: 450px) {
-      max-width: 150px;
-      max-height: 300px;
-    }
-`;
-
-const ProductImage = styled.div`
-  /* border: 1px solid #000; */
-  div {
-    width: 120px;
-    height: 150px;
-    position: relative;
-    margin: 0 auto;
-
-    img {
-      /* border: 1px solid green; */
-      width: 100%;
-      height: 100%;
-      background-position: 0 100%;
-      background-repeat: no-repeat;
-      background-size: 100% 200px;
-    }
-
-    div.tagstatus {
-      /* content: "NEW"; */
-      position: absolute;
-      font-size: 10px;
-      border-radius: 50%;
-      background-color: rgba(255, 171, 0, 0.95);
-      width: 4em;
-      height: 4em;
-      text-align: center;
-      vertical-align: middle;
-      line-height: 4em;
-      color: #fff;
-      font-weight: 700;
-      transform: rotate(-18deg);
-      top: 0px;
-      left: -20px;
-      text-shadow: 0 1px 1px rgb(0 0 0 / 40%);
-      letter-spacing: 0.08em;
-    }
-
-    @media(max-width: 450px) {
-      max-width: 120px;
-      max-height: 150px;
-      /* border: 1px solid blue; */
-    }
-  }
-
-`;
-
-const ProductTilte = styled.div`
-  display: inline-block;
-  margin-top: 10px;
-  width: 120px;
-  word-wrap: break-word;
-
-  span {
-    font-weight: 400;
-    color: #333;
-  }
-`;
-
-const ProductPrice = styled.div`
-  position: absolute;
-  bottom: 10px;
-  left: 14px;
-  width: 100px;
-  span {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 2px 4px;
-    border-radius: 4px;
-    background: linear-gradient(45deg, #ff6922, #ef5e24);
-  }
-`;

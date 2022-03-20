@@ -1,0 +1,60 @@
+.product {
+  padding: 3rem 0;
+
+  &__header {
+    font-size: 2.4rem;
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__box {
+    white-space: nowrap;
+    overflow-x: scroll;
+    margin-top: 2rem;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.arrow-icon__box {
+  position: absolute;
+  top: 50%;
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: var(--color-black);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  color: var(--color-white);
+}
+
+.arrow-icon--back {
+  margin-right: 3px;
+}
+
+.arrow-icon--forward {
+    margin-left: 3px;
+  }
+
+.arrow-icon__box--back {
+  transform: translate(-50%, -50%);
+  left: 0;
+}
+
+.arrow-icon__box--forward {
+  transform: translate(50%, -50%);
+  right: 0;
+}
+

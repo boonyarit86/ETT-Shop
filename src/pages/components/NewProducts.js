@@ -1,65 +1,42 @@
 import React from "react";
-import styled from "styled-components";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { products } from "../../Api";
-
-import "./Slider.css"
 import ProductCard from "./ProductCard";
+import "./NewProducts.scss";
 
 // React-slick
 function NewProducts() {
   const slideLeft = () => {
-    let slider = document.getElementById("slider");
+    let slider = document.querySelector(".product__box");
     slider.scrollLeft = slider.scrollLeft + 500;
   };
 
   const slideRight = () => {
-    let slider = document.getElementById("slider");
+    let slider = document.querySelector(".product__box");
     slider.scrollLeft = slider.scrollLeft - 500;
   };
 
   return (
-    <Container>
-      <Content>
-        <h3>New Product</h3>
-        <div className="main-slider-container">
-          <MdChevronLeft
-            size={40}
-            className="slider-icon left"
-            onClick={slideLeft}
-          />
-          <div id="slider">
-            { products.length > 0 && products.map((product, index) => (
-              <React.Fragment key={index}>
-                <ProductCard product={product} />
-              </React.Fragment>
-            ))}
-          </div>
-          <MdChevronRight
-            size={40}
-            className="slider-icon right"
-            onClick={slideRight}
-          />
+    <div className="product">
+      <h1 className="product__header">สินค้าใหม่</h1>
+      <div className="product__slider">
+        <div className="arrow-icon__box arrow-icon__box--back" onClick={slideRight}>
+          <ion-icon class="arrow-icon arrow-icon--back" name="chevron-back-outline"></ion-icon>
         </div>
-      </Content>
-    </Container>
+        <div className="product__box">
+          {products.length > 0 &&
+            products.map((product, index) => (
+              <ProductCard product={product} key={index} />
+            ))}
+        </div>
+        <div className="arrow-icon__box arrow-icon__box--forward" onClick={slideLeft}>
+          <ion-icon
+            class="arrow-icon arrow-icon--forward"
+            name="chevron-forward-outline"
+          ></ion-icon>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default NewProducts;
-
-const Container = styled.div`
-  margin: 0 auto;
-  max-width: 1128px;
-  padding: 10px;
-`;
-
-const Content = styled.div`
-  width: 100%;
-  margin-top: 10px;
-  h3 {
-    margin: 10px 0;
-  }
-`;
-
-
