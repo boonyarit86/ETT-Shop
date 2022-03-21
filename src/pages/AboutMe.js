@@ -1,12 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import "./AboutMe.scss";
 
 function AboutMe() {
   return (
-    <Container>
-      <Content>
-        <Box>
-          <TextInfo>
+    <div className="aboutme">
+      <div className="row">
+          <div className="aboutme__info">
             <h2>
               เกี่ยวกับ ETT <span></span>
             </h2>
@@ -26,54 +25,14 @@ function AboutMe() {
               ลดการนำเข้าบอร์ดจากต่างประเทศ สนใจสามารถติดต่อรับบริการได้ที่
               บริษัท อีทีที
             </p>
-          </TextInfo>
-          <ImageInfo>
+          </div>
+          <div className="aboutme__img-info">
             <img src="/images/ett-intro1.jpg" alt="" />
-          </ImageInfo>
-        </Box>
-      </Content>
-    </Container>
-  );
+          </div>
+      </div>
+    </div>
+
+);
 }
 
 export default AboutMe;
-
-const Container = styled.div`
-  background: #f5f5f7;
-`;
-const Content = styled.div`
-  margin: 80px auto 0 auto;
-  max-width: 1128px;
-  padding: 10px;
-`;
-const Box = styled.div`
-  background: #fff;
-  padding: 10px 20px;
-  margin: 20px 0;
-`;
-const ImageInfo = styled.div`
-  display: flex;
-  justify-content: center;
-  img {
-      width: 100%;
-  }
-`;
-const TextInfo = styled.div`
-  h2 {
-    padding: 10px 0;
-    position: relative;
-
-    span {
-      position: absolute;
-      width: 50px;
-      height: 3px;
-      background: #002ead;
-      bottom: 0;
-      left: 0;
-    }
-  }
-
-  p {
-    margin: 10px 0;
-  }
-`;
