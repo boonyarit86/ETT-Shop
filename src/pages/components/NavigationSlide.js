@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import "./NavigationSlide.css";
+import "./NavigationSlide.scss";
 
 // ***  Slider.css *** //
 // this file is also used for NewProducts.js
@@ -24,7 +24,7 @@ function NavigationSlide() {
   }, []);
 
   const slideLeft = () => {
-    let img = document.getElementById("NavigationSlide-img");
+    let img = document.getElementById("navigation-slide__img");
     let arrowLeft = document.getElementById("arrow-left");
     let arrowRight = document.getElementById("arrow-right");
     if (count !== 0) {
@@ -37,7 +37,7 @@ function NavigationSlide() {
   };
 
   const slideRight = () => {
-    let img = document.getElementById("NavigationSlide-img");
+    let img = document.getElementById("navigation-slide__img");
     let arrowLeft = document.getElementById("arrow-left");
     let arrowRight = document.getElementById("arrow-right");
     if (count !== maxImageNumber) {
@@ -50,16 +50,16 @@ function NavigationSlide() {
   };
 
   return (
-    <div className="NavigationSlide-container" id={count}>
+    <div className="navigation-slide__container" id={count}>
       <MdChevronLeft
         size={40}
         className="slider-icon left"
         id="arrow-left"
         onClick={slideLeft}
       />
-      <div className="NavigationSlide-slide">
+      <div className="navigation-slide__img-box">
         <img
-          id="NavigationSlide-img"
+          id="navigation-slide__img"
           src="https://c4.wallpaperflare.com/wallpaper/13/457/274/anime-re-zero-starting-life-in-another-world-emilia-re-zero-re-zero-starting-life-in-another-world-ova-memory-snow-wallpaper-preview.jpg"
         />
       </div>
