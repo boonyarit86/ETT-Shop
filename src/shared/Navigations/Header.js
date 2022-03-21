@@ -56,7 +56,7 @@ function Header() {
                       <Link to="/product">สินค้า</Link>
                     </li>
                     <li className="header__item">
-                      <a href="#" alt="">
+                      <a href="http://www.ett.co.th/article/article.html">
                         บทความ
                       </a>
                     </li>

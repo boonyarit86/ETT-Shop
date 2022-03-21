@@ -15,7 +15,9 @@ function Footer() {
                   การชำระเงิน
                 </Link>
               </li>
-              <li className="footer__menu-item">สินค้าจากต่างประเทศ</li>
+              <li className="footer__menu-item">
+                <a className="footer__menu-link" href="https://www.futurlec.com/">สินค้าจากต่างประเทศ</a>
+              </li>
             </ul>
           </div>
 
@@ -27,13 +29,27 @@ function Footer() {
                   ประวัติ ETT
                 </Link>
               </li>
-              <li className="footer__menu-item">บทความ</li>
+              <li className="footer__menu-item">
+                <a
+                  className="footer__menu-link"
+                  href="http://www.ett.co.th/article/article.html"
+                >
+                  บทความ
+                </a>
+              </li>
               <li className="footer__menu-item">
                 <Link className="footer__menu-link" to="/partner">
                   ตัวแทนจำหน่าย
                 </Link>
               </li>
-              <li className="footer__menu-item">ดาวน์โหลด</li>
+              <li className="footer__menu-item">
+                <a
+                  className="footer__menu-link"
+                  href="http://www.ett.co.th/download.html"
+                >
+                  ดาวน์โหลด
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -41,7 +57,7 @@ function Footer() {
             <Link
               className="footer__menu-link footer__menu--font-white"
               to="/contact"
-              style={{padding: 0}}
+              style={{ padding: 0 }}
             >
               ข้อมูลติดต่อ
             </Link>
