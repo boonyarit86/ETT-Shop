@@ -1,9 +1,14 @@
 .product {
     &__item {
-        width: 25rem;
         overflow: hidden;
         display: inline-block;
         color: var(--color-black);
+        transition: transform 0.3s;
+        padding-bottom: 1rem;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
     }
 
     &__item:not(:last-child) {

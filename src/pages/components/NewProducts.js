@@ -25,7 +25,7 @@ function NewProducts() {
         <div className="product__box">
           {products.length > 0 &&
             products.map((product, index) => (
-              <ProductCard product={product} key={index} />
+              <ProductCard product={product} key={index} isSlider />
             ))}
         </div>
         <div className="arrow-icon__box arrow-icon__box--forward" onClick={slideLeft}>
