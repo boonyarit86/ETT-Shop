@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import TablePartner from "./components/TablePartner";
+import "./Partner.scss";
 
 function Partner() {
   let partners = [
@@ -160,23 +160,13 @@ function Partner() {
   ];
 
   return (
-    <Container>
-      <Content>
+    <div className="partner">
+      <div className="row">
         <TablePartner title="ตัวแทนจำหน่าย" partners={partners} />
-      </Content>
-    </Container>
+      </div>
+    </div>
   );
 }
 
 export default Partner;
 
-const Container = styled.div`
-  margin: 80px auto;
-  max-width: 1128px;
-  padding: 10px;
-`;
-
-const Content = styled.div`
-  margin-top: 10px;
-  width: 100%;
-`;

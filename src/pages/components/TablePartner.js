@@ -1,14 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+import "./TablePartner.scss";
 
 function TablePartner({ title, partners }) {
   return (
-    <div>
-      <Title>
+    <div className="table-partner">
+      <div className="table-partner__title">
         <span>{title}</span>
-      </Title>
-      <Table>
-        <Thead>
+      </div>
+      <table>
+        <thead className="table-partner__thead">
           <tr>
             <th>ชื่อตัวแทนจำหน่าย</th>
             <th>ประเทศ</th>
@@ -16,8 +16,8 @@ function TablePartner({ title, partners }) {
             <th>เบอร์ติดต่อ</th>
             <th>แฟกซ์</th>
           </tr>
-        </Thead>
-        <Tbody>
+        </thead>
+        <tbody className="table-partner__tbody">
           {partners.length > 0 &&
             partners.map((partner, index) => (
               <tr key={index}>
@@ -25,128 +25,28 @@ function TablePartner({ title, partners }) {
                 <td>{partner.country}</td>
                 <td>{partner.province}</td>
                 <td>
-                  <ContactWrap>
+                  <ul className="table-partner__phone-list">
                     {partner.phone.length > 0 &&
                       partner.phone.map((phone) => (
-                        <ContactList key={phone}>{phone}</ContactList>
+                        <li className="table-partner__phone" key={phone}>{phone}</li>
                       ))}
-                  </ContactWrap>
+                  </ul>
                 </td>
                 <td>
-                  <ContactWrap>
+                  <ul className="table-partner__phone-list">
                     {partner.fax.length > 0 &&
                       partner.fax.map((fax) => (
-                        <ContactList key={fax}>{fax}</ContactList>
+                        <li className="table-partner__phone" key={fax}>{fax}</li>
                       ))}
-                  </ContactWrap>
+                  </ul>
                 </td>
               </tr>
             ))}
-        </Tbody>
-      </Table>
+        </tbody>
+      </table>
     </div>
   );
 }
 
 export default TablePartner;
 
-const Title = styled.div`
-  border-bottom: 3px solid #666;
-  padding: 8px 0;
-  margin: 10px 0;
-
-  span {
-    padding: 10px 20px;
-    background: #666;
-    color: #fff;
-  }
-`;
-
-const Table = styled.table`
-  width: 100%;
-`;
-
-const Thead = styled.thead`
-  tr {
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  th {
-    padding: 8px;
-    text-align: left;
-    color: #002ead;
-    font-size: 18px;
-  }
-
-  th:first-child {
-    color: #1a1a1a;
-  }
-
-  th:first-child,
-  th:nth-child(4),
-  th:last-child {
-    flex: 2;
-  }
-
-  th:nth-child(2),
-  th:nth-child(3) {
-    flex: 1;
-  }
-`;
-
-const Tbody = styled.tbody`
-  tr {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  td {
-    padding: 8px;
-    text-align: left;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-  }
-
-  td:first-child {
-    color: #1a1a1a;
-    font-weight: 500;
-  }
-
-  td:last-child {
-    border: none;
-  }
-
-  tr:nth-child(even) {
-    background: #f2f2f2;
-  }
-
-  tr:hover {
-    background: #ddd;
-  }
-
-  td:first-child,
-  td:nth-child(4),
-  td:last-child {
-    flex: 2;
-  }
-
-  td:nth-child(2),
-  td:nth-child(3) {
-    flex: 1;
-  }
-
-  @media(max-width: 500px) {
-    td:first-child {
-        width: 80px;
-        overflow: scroll;
-  }
-  }
-`;
-
-const ContactWrap = styled.ul`
-  list-style: none;
-`;
-
-const ContactList = styled.li`
-  margin-bottom: 5px;
-`;
