@@ -1,5 +1,5 @@
 .footer {
-  background-color: #000;
+  background-color: var(--color-black);
   margin-top: 3rem;
   padding: 5rem 0;
 
@@ -33,7 +33,7 @@
   }
   &__menu-link {
     &:hover {
-      color: var(--color-accent);
+      color: var(--color-primary);
     }
   }
 
@@ -47,14 +47,14 @@
   &__social-icon-box {
     width: 3.8rem;
     height: 3.8rem;
-    background-color: #333;
+    background-color: var(--color-black-2);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &:hover {
-        background-color: #002ead;
+        background-color: var(--color-accent);
     }
   }
 
@@ -76,7 +76,7 @@
     }
 
     &-link:hover {
-      color: var(--color-accent);
+      color: var(--color-primary);
     }
   }
 }

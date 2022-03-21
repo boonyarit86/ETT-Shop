@@ -30,7 +30,7 @@
 
     &-date,
     &-status {
-      color: var(--color-white);
+      color: var(--color-black);
       height: 3rem;
       text-align: center;
       display: flex;
@@ -39,6 +39,7 @@
       background-color: var(--color-primary);
       font-size: var(--font-size--small);
       width: 12rem;
+      font-weight: var(--font-weight--medium);
     }
 
     &-detail {
