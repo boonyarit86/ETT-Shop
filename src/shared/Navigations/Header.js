@@ -1,12 +1,51 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Backdrop from "../UIElements/Backdrop";
 import "./Header.scss";
 
+const HEADER__ITEM_LINK__ACTIVE = "header__item-link--active";
 
 function Header() {
   const [openMenuMobile, setOpenMenuMobile] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    let pathname = location.pathname;
+    let header__itemAll = document.querySelectorAll(".header__item-link");
+
+    header__itemAll.forEach(ele => {
+      if(isElementActive(ele)) {
+        removeActiveElement(ele);
+      }
+    })
+
+    if(pathname === "/") {
+      setActiveElement(header__itemAll[0])
+    }
+
+    if(pathname === "/product") {
+      setActiveElement(header__itemAll[1])
+    }
+
+    if(pathname === "/contact") {
+      setActiveElement(header__itemAll[3])
+    }
+
+    function setActiveElement (ele) {
+      ele.classList.add(HEADER__ITEM_LINK__ACTIVE);
+    }
+
+    function isElementActive (ele) {
+      return ele.getAttribute("class").split(" ")[1] !== undefined;
+    }
+
+    function removeActiveElement (ele) {
+      ele.classList.remove(HEADER__ITEM_LINK__ACTIVE);
+    }
+
+    return;
+  }, [location.pathname])
 
   const onClickSearchInput = () => {
     let header_searchEl = document.querySelector(".header__search-input-box");
@@ -50,18 +89,18 @@ function Header() {
                 <div className="header__menu">
                   <ul className="header__list">
                     <li className="header__item">
-                      <Link to="/">หน้าแรก</Link>
+                      <Link className="header__item-link" to="/">หน้าแรก</Link>
                     </li>
                     <li className="header__item">
-                      <Link to="/product">สินค้า</Link>
+                      <Link className="header__item-link" to="/product">สินค้า</Link>
                     </li>
                     <li className="header__item">
-                      <a href="http://www.ett.co.th/article/article.html">
+                      <a className="header__item-link" href="http://www.ett.co.th/article/article.html">
                         บทความ
                       </a>
                     </li>
                     <li className="header__item">
-                      <Link to="/contact">ติดต่อ</Link>
+                      <Link className="header__item-link" to="/contact">ติดต่อ</Link>
                     </li>
                   </ul>
                 </div>
