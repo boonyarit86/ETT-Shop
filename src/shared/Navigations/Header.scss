@@ -50,8 +50,9 @@
   &__item {
     position: relative;
 
-    &:hover &-link, &-link--active {
-       border-bottom: 3px solid var(--color-primary);
+    &:hover &-link,
+    &-link--active {
+      border-bottom: 3px solid var(--color-primary);
     }
 
     &-link {
@@ -74,7 +75,7 @@
     outline: none;
     font-size: inherit;
     font-family: inherit;
-    border: 1px solid var(--color-grey--dark);
+    border: 1px solid var(--color-grey--medium);
     background-color: var(--color-white);
     height: 100%;
     text-indent: 1rem;
@@ -94,6 +95,10 @@
       &--open {
         opacity: 1;
         width: 50rem;
+
+        @media (max-width: 31.25em) {
+          width: 90%;
+        }
       }
     }
 
@@ -102,6 +107,40 @@
       align-items: center;
       justify-content: center;
       height: 3.6rem;
+
+      position: relative;
+    }
+
+    &-result {
+      position: absolute;
+      top: 4rem;
+      left: 3.2rem;
+      width: calc(100% - 3.2rem);
+      background-color: var(--color-white);
+      padding: 1rem 0;
+      max-height: 30rem;
+      overflow: hidden;
+      overflow-y: scroll;
+      border: 1px solid var(--color-grey--medium);
+      border-radius: 5px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      li {
+        list-style: none;
+        padding: 1rem;
+        cursor: pointer;
+
+        a {
+          color: var(--color-black);
+        }
+
+        &:hover {
+          background-color: var(--color-grey--medium);
+        }
+      }
     }
 
     &-icon {
@@ -141,7 +180,6 @@
   background-color: var(--color-white);
   transition: left 0.5s ease-in-out;
 
-
   &__header {
     display: flex;
     align-items: center;
@@ -177,7 +215,7 @@
     padding: 1rem 3rem 1rem 3.5rem;
     color: var(--color-black);
 
-    &-icon  {
+    &-icon {
       width: 2.4rem;
       height: 2.4rem;
     }
