@@ -1,0 +1,137 @@
+.payment {
+  padding: 3rem 0;
+
+  &__heading {
+      font-size: 2.4rem;
+  }
+
+  &__list {
+    margin: 1rem 0;
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 0.5rem;
+    a {
+      margin-left: 0.5rem;
+      text-decoration: underline;
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
+
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 1rem 0;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    border-bottom: 3px solid var(--color-grey--dark);
+    padding: 8px 0;
+    margin: 2rem 0;
+
+    span {
+      padding: 10px 2rem;
+      background: var(--color-black-2);
+      color: var(--color-white);
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border: 1px solid var(--color-grey--dark);
+    background: var(--color-white);
+  }
+
+  &__thead {
+    tr {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    th {
+      border-right: 1px solid var(--color-grey--dark);
+      border-bottom: 1px solid var(--color-grey--dark);
+      padding: 1rem;
+      text-align: left;
+      color: var(--color-black);
+    }
+
+    th:first-child {
+      @media (max-width: 31.25em) {
+        text-align: center;
+      }
+    }
+
+    th:nth-child(4),
+    th:last-child {
+      flex: 1;
+    }
+
+    th:first-child,
+    th:nth-child(2),
+    th:nth-child(3) {
+      flex: 2;
+    }
+    th:last-child {
+      border-right: none;
+    }
+  }
+
+  &__tbody {
+    tr {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--color-grey--dark);
+    }
+    td {
+      padding: 1rem;
+      text-align: left;
+      border-right: 1px solid var(--color-grey--dark);
+    }
+
+    td:first-child {
+      display: flex;
+      img {
+        margin: 3px 5px 0 0;
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      @media (max-width: 31.25em) {
+        span {
+          display: none;
+        }
+        justify-content: center;
+      }
+    }
+
+    td:nth-child(4),
+    td:last-child {
+      flex: 1;
+    }
+
+    td:first-child,
+    td:nth-child(2),
+    td:nth-child(3) {
+      flex: 2;
+    }
+
+    td:last-child {
+      border-right: none;
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 31.25em) {
+      td:nth-child(2) {
+        overflow: scroll;
+      }
+    }
+  }
+}
