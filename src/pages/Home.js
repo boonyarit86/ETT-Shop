@@ -1,17 +1,18 @@
 import React from "react";
-import styled from "styled-components";
+import Hero from "./components/Hero";
 import NewProducts from "./components/NewProducts";
 import News from "./components/News";
 
-function Home () {
-
-    return (
-        <div className="row">
-            <News />
-            <NewProducts />
-        </div>
-    )
+function Home() {
+  return (
+    <React.Fragment>
+      <Hero />
+      <div className="row">
+        <News />
+        <NewProducts />
+      </div>
+    </React.Fragment>
+  );
 }
-
 
 export default Home;

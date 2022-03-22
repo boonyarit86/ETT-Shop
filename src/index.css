@@ -51,9 +51,26 @@ a {
 }
 
 .row {
-  max-width: 114rem;
+  max-width: 130rem;
   padding: 0rem 3rem;
   margin: 0 auto;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 1.2rem 1.5rem;
+  display: inline-block;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+
+.btn--secondary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.btn--secondary:hover {
+  background-color: #2E3180;
 }
 
 @keyframes slideUp {
